@@ -5,7 +5,7 @@
 	@if(Session::has('error'))
 	<p class="text-danger">{{session('error')}}</p>
 	@endif
-	<form method="post" action="{{url('customer/login')}}">
+	<form method="post" action="{{url('guest/login')}}">
 		@csrf
 		<table class="table table-bordered">
 			<tr>

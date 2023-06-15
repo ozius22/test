@@ -5,7 +5,7 @@
 	@if(Session::has('success'))
 	<p class="text-success">{{session('success')}}</p>
 	@endif
-	<form method="post" action="{{url('admin/customer')}}">
+	<form method="post" action="{{url('admin/guest')}}">
 		@csrf
 		<table class="table table-bordered">
 			<tr>
@@ -22,11 +22,11 @@
 			</tr>
 			<tr>
 				<th>Mobile<span class="text-danger">*</span></th>
-				<td><input required type="number" class="form-control" name="mobile"></td>
+				<td><input required type="text" class="form-control" name="mobile"></td>
 			</tr>
 			<tr>
 				<th>Address</th>
-				<td><input type="text" class="form-control" name="address"></td>
+				<td><input required type="text" class="form-control" name="address"></td>
 			</tr>
 			<tr>
 				<input type="hidden" name="ref" value="front" />

@@ -61,6 +61,11 @@ class GuestController extends Controller
         $data->photo = implode(',', $uploadedPaths);
         $data->save();
 
+        $ref=$request->ref;
+        if($ref=='front'){
+            return redirect('register')->with('success','Data has been saved.');
+        }
+
         return redirect('admin/guest/create')->with('success', 'Data has been added.');
 }
 
@@ -138,13 +143,13 @@ class GuestController extends Controller
     }
 
     // Check Login
-    function Guest_login(Request $request){
-        $email=$request->email;
+    function guest_login(Request $request){
+        $email=$request->email; 
         $pwd=sha1($request->password);
         $detail=Guest::where(['email'=>$email,'password'=>$pwd])->count();
         if($detail>0){
             $detail=Guest::where(['email'=>$email,'password'=>$pwd])->get();
-            session(['Guestlogin'=>true,'data'=>$detail]);
+            session(['guestlogin'=>true,'data'=>$detail]);
             return redirect('/');
         }else{
             return redirect('login')->with('error','Invalid email/password!!');
@@ -158,7 +163,7 @@ class GuestController extends Controller
 
     // Logout
     function logout(){
-        session()->forget(['Guestlogin','data']);
+        session()->forget(['guestlogin','data']);
         return redirect('login');
     }
 }

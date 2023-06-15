@@ -17,11 +17,11 @@
             <table class="table table-bordered">
                 <tr>
                     <th>CheckIn Date <span class="text-danger">*</span></th>
-                    <td><input name="checkin_date" type="date" class="form-control checkin-date" /></td>
+                    <td><input name="checkin_date" required type="date" class="form-control checkin-date" /></td>
                 </tr>
                 <tr>
                     <th>CheckOut Date <span class="text-danger">*</span></th>
-                    <td><input name="checkout_date" type="date" class="form-control" /></td>
+                    <td><input name="checkout_date" required type="date" class="form-control" /></td>
                 </tr>
                 <tr>
                     <th>Avaiable Rooms <span class="text-danger">*</span></th>
@@ -34,16 +34,16 @@
                 </tr>
                 <tr>
                     <th>Total Adults <span class="text-danger">*</span></th>
-                    <td><input name="total_adults" type="text" class="form-control" /></td>
+                    <td><input name="total_adults" required type="number" class="form-control" /></td>
                 </tr>
                 <tr>
                     <th>Total Children</th>
-                    <td><input name="total_children" type="text" class="form-control" /></td>
+                    <td><input name="total_children" value=0 type="number" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         @if(Session::has('data'))
-                    	<input type="hidden" name="customer_id" value="{{session('data')[0]->id}}" />
+                    	<input type="hidden" name="guest_id" value="{{session('data')[0]->id}}" />
                         @endif
                         <input type="hidden" name="roomprice" class="room-price" value="" />
                     	<input type="hidden" name="ref" value="front" />
@@ -54,7 +54,7 @@
         </form>
     </div>               
 </div>
-
+ 
 <script type="text/javascript">
     $(document).ready(function(){
         $(".checkin-date").on('blur',function(){

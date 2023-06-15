@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Hotel Del Luna</title>
+    <title>Admin Hotel Del Luna</title> 
 
     @if(!Session::has('adminData'))
         <script type="text/javascript">

@@ -5,7 +5,7 @@
 	@if(Session::has('success'))
 	<p class="text-success">{{session('success')}}</p>
 	@endif
-	<form method="post" action="{{url('customer/save-testimonial')}}">
+	<form method="post" action="{{url('guest/save-testimonial')}}">
 		@csrf
 		<table class="table table-bordered">
 			<tr>

@@ -33,12 +33,12 @@ class HomeController extends Controller
 
     // Save Testimonial
     function save_testimonial(Request $request){
-        $customerId=session('data')[0]->id;
+        $guest_id=session('data')[0]->id;
         $data=new Testimonial;
-        $data->customer_id=$customerId;
+        $data->guest_id=$guest_id;
         $data->testi_cont=$request->testi_cont;
         $data->save();
 
-        return redirect('customer/add-testimonial')->with('success','Data has been added.');
+        return redirect('guest/add-testimonial')->with('success','Data has been added.');
     }
 }
